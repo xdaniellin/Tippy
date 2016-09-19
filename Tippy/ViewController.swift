@@ -97,6 +97,26 @@ class ViewController: UIViewController {
     @IBAction func changeTip(sender: AnyObject) {
         calculateTip(self)
     }
+    
+    // 09/19
+    // Takes in a string (from shortcutItem.type), and is either a 10,15,or 20. This will set the tipControl (UISegmentedControl) active index
+    func setTipString(tipString: String)
+    {
+        if tipString == "10"
+        {
+            tipControl.selectedSegmentIndex = 0
+        }
+        else if tipString == "15"
+        {
+            tipControl.selectedSegmentIndex = 1
+        }
+        else if tipString == "20"
+        {
+            tipControl.selectedSegmentIndex = 2
+        }
+        
+    }
+    
     @IBAction func calculateTip(sender: AnyObject) {
         
         let bill           = Double(billField.text!) ?? 0

@@ -36,5 +36,26 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>10</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Tip 10%</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>15</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Tip 15%</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>20</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Tip 20%</string>
+		</dict>
+	</array>
 </dict>
 </plist>

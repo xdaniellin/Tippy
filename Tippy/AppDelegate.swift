@@ -40,6 +40,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // Tutorial used: https://www.youtube.com/watch?v=NO9E5KxixOw
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let root = UIApplication.sharedApplication().keyWindow?.rootViewController
+
+        if let _navigationController = root as? UINavigationController
+        {
+            // If it's not the first time launching the app
+            if _navigationController.viewControllers.count > 0
+            {
+                // Find the existing VC and call the "setTipString" method from it
+                if let _viewController = _navigationController.viewControllers.first as? ViewController
+                {
+                    // Call "setTipString"
+                    _viewController.setTipString(shortcutItem.type)                }
+            }
+            // If first time launching app
+            else
+            {
+                //We have to call the "tipVC.setTipString" method only after the VC is loaded
+                let tipVC = sb.instantiateViewControllerWithIdentifier("tipVC") as! ViewController
+                root?.presentViewController(tipVC, animated: true, completion: { () -> Void in
+                    tipVC.setTipString(shortcutItem.type)
+                    completionHandler(true)
+                })
+            }
+        }
+    }
 
 
 }
